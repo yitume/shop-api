@@ -1,0 +1,82 @@
+# default false
+release_mode = false
+# default DEBUG, DEBUG INFO WARN ERROR OFF
+log_level = "DEBUG"
+# REDIS,FILE,COOKIE(COOKIE Default)
+session_store = "REDIS"
+# REDIS,MEMCACHED,IN_MEMORY(IN_MEMORY Default)
+cache_store = "REDIS"
+
+[app]
+    name = "Echo Web"
+    #debug or release
+    mode = "debug"
+
+[build]
+    app = "shop-api"
+    version = "1.0"
+    env = "dev"
+
+[serverApi]
+    graceful = true
+    addr = ":10004"
+    writeTimeout = "10s"
+    readTimeout = "10s"
+    maxHeaderBytes = 100000000000000
+
+[serverStat]
+    graceful = true
+    addr = ":20004"
+    writeTimeout = "10s"
+    readTimeout = "10s"
+    maxHeaderBytes = 100000000000000
+
+[wechat]
+    appID = "YOUR_WECHAT_APPID"
+    appSecret = "YOUR_WECHAT_APPSECRET"
+
+[callerGinSession]
+    name = "mysession"
+    size = 10
+    network = "tcp"
+    addr = "127.0.0.1:6379"
+    pwd = ""
+    keypairs = "secret"
+
+[callerRedigo.auth]
+    debug = true
+    addr = "127.0.0.1:6379"
+    network = "tcp"
+    db = 0
+    password = ""
+    connectTimeout = "1s"
+    readTimeout = "1s"
+    writeTimeout = "1s"
+    maxIdle = 5
+    maxActive = 20
+    idleTimeout = "60s"
+    wait = false
+
+[callerGorm.mall]
+    debug = true
+    level = "panic"
+    network = "tcp"
+    dialect = "mysql"
+    addr = "127.0.0.1:3307"
+    username = "root"
+    password = "root"
+    db = "shop"
+    charset = "utf8"
+    parseTime = "True"
+    loc = "Local"
+    timeout = "1s"
+    readTimeout = "1s"
+    writeTimeout = "1s"
+    maxOpenConns = 30
+    maxIdleConns = 10
+    connMaxLifetime = "300s"
+
+[callerZap.system]
+    debug = true
+    level = "debug"
+    path = "./system.log"
