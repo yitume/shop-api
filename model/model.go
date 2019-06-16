@@ -2,19 +2,19 @@ package model
 
 import (
 	"github.com/jinzhu/gorm"
-	cgorm "github.com/yitume/caller/gorm"
-	"github.com/yitume/caller/redigo"
-	"github.com/yitume/caller/zap"
+	"github.com/yitume/muses/pkg/cache/redis"
+	"github.com/yitume/muses/pkg/database/mysql"
+	"github.com/yitume/muses/pkg/logger"
 )
 
 var (
-	Logger *zap.ZapClient
+	Logger *logger.Client
 	Db     *gorm.DB
-	Redigo *redigo.RedigoClient
+	Redigo *redis.Client
 )
 
 func Init() {
-	Db = cgorm.Caller("mall").DB
-	Logger = zap.Caller("system")
-	Redigo = redigo.Caller("auth")
+	Db = mysql.Caller("mall")
+	Logger = logger.Caller("system")
+	Redigo = redis.Caller("auth")
 }

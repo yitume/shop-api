@@ -11,9 +11,9 @@ import (
 
 	"fmt"
 
+	. "github.com/smartystreets/goconvey/convey"
 	"github.com/yitume/shop-api/model"
 	"github.com/yitume/shop-api/service"
-	. "github.com/smartystreets/goconvey/convey"
 )
 
 func init() {

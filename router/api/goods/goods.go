@@ -1,9 +1,9 @@
 package goods
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/yitume/shop-api/model"
 	"github.com/yitume/shop-api/pkg/common/code"
-	"github.com/gin-gonic/gin"
 	"time"
 
 	"github.com/yitume/shop-api/model/mysql"

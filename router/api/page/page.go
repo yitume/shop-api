@@ -3,11 +3,11 @@ package page
 import (
 	"encoding/json"
 
+	"github.com/gin-gonic/gin"
 	"github.com/yitume/shop-api/model/mysql"
 	"github.com/yitume/shop-api/model/trans"
 	"github.com/yitume/shop-api/router/base"
 	"github.com/yitume/shop-api/service"
-	"github.com/gin-gonic/gin"
 )
 
 func Portal(c *gin.Context) {

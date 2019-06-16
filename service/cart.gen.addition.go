@@ -3,11 +3,11 @@ package service
 import (
 	"fmt"
 
+	"github.com/gin-gonic/gin"
 	"github.com/yitume/shop-api/model"
 	"github.com/yitume/shop-api/model/mysql"
 	"github.com/yitume/shop-api/pkg/logic"
 	"github.com/yitume/shop-api/router/mdw"
-	"github.com/gin-gonic/gin"
 )
 
 func (*cart) TotalNum(uid int, openId int) (cnt int) {

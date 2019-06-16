@@ -1,15 +1,13 @@
 package router
 
 import (
-	"net/http"
 	"time"
 
 	"github.com/gin-contrib/cache"
 	"github.com/gin-contrib/cache/persistence"
 	"github.com/gin-gonic/gin"
-	"github.com/zsais/go-gin-prometheus"
 
-	"github.com/yitume/shop-api/model"
+	mgin "github.com/yitume/muses/pkg/server/gin"
 	"github.com/yitume/shop-api/pkg/bootstrap"
 	"github.com/yitume/shop-api/router/api/address"
 	"github.com/yitume/shop-api/router/api/area"
@@ -22,17 +20,13 @@ import (
 	"github.com/yitume/shop-api/router/api/shop"
 	"github.com/yitume/shop-api/router/api/user"
 	"github.com/yitume/shop-api/router/mdw"
-	"github.com/yitume/shop-api/router/mdw/ginzap"
 	"github.com/yitume/shop-api/router/mdw/wechat"
 )
 
 func InitApi() *gin.Engine {
 	gin.SetMode(bootstrap.Conf.App.Mode)
 
-	r := gin.New()
-	r.Use(ginzap.Ginzap(model.Logger.Logger, time.RFC3339, true))
-	r.Use(ginzap.RecoveryWithZap(model.Logger.Logger, true))
-
+	r := mgin.Caller()
 	store := persistence.NewInMemoryStore(time.Second)
 	domainGroup := r.Group("/api/:domain", mdw.Domain())
 	{
@@ -129,23 +123,5 @@ func InitApi() *gin.Engine {
 			callbackGrp.POST("/wechatMiniNotify", buy.WechatMiniNotify)
 		}
 	}
-	return r
-}
-
-func InitStat() http.Handler {
-	r := gin.New()
-	r.Use(gin.Recovery())
-	p := ginprometheus.NewPrometheus("gin")
-	p.Use(r)
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(
-			http.StatusOK,
-			gin.H{
-				"code":  http.StatusOK,
-				"error": "Welcome ServerApi Stats",
-			},
-		)
-	})
-
 	return r
 }

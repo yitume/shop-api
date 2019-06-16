@@ -1,6 +1,7 @@
 package address
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/yitume/shop-api/model"
 	"github.com/yitume/shop-api/model/mysql"
 	"github.com/yitume/shop-api/model/resp"
@@ -10,7 +11,6 @@ import (
 	"github.com/yitume/shop-api/router/mdw"
 	"github.com/yitume/shop-api/router/mdw/wechat"
 	"github.com/yitume/shop-api/service"
-	"github.com/gin-gonic/gin"
 )
 
 func List(c *gin.Context) {
