@@ -1,10 +1,10 @@
 package category
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/yitume/shop-api/model"
 	"github.com/yitume/shop-api/model/mysql"
 	"github.com/yitume/shop-api/router/base"
-	"github.com/gin-gonic/gin"
 )
 
 // List 公开的分类列表

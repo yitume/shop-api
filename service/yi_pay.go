@@ -7,9 +7,9 @@ import (
 
 	"github.com/yitume/shop-api/model"
 
-	"github.com/yitume/shop-api/model/mysql"
 	"github.com/jinzhu/gorm"
 	"github.com/pkg/errors"
+	"github.com/yitume/shop-api/model/mysql"
 )
 
 type yiPay struct{}

@@ -6,10 +6,10 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/gin-gonic/gin"
 	"github.com/yitume/shop-api/model"
 	"github.com/yitume/shop-api/model/mysql"
 	"github.com/yitume/shop-api/router/base"
-	"github.com/gin-gonic/gin"
 )
 
 // List 商品列表

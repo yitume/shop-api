@@ -3,11 +3,11 @@ package service
 import (
 	"time"
 
+	"github.com/gin-gonic/gin"
+	"github.com/jinzhu/gorm"
 	"github.com/yitume/shop-api/model"
 	"github.com/yitume/shop-api/model/mysql"
 	"github.com/yitume/shop-api/model/trans"
-	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
 	"go.uber.org/zap"
 )
 
