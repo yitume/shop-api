@@ -17,6 +17,12 @@ make
 ./bin/shop-api version -h # 查看 version 子命令使用帮助
 ```
 
+## 导入数据
+
+```bash
+mysql> source ./tool/shop-201906132221.sql;
+```
+
 ## 监控
 
 ### SaaS 总体监控
